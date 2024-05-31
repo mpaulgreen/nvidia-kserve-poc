@@ -1,0 +1,31 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    serving.knative.openshift.io/enablePassthrough: "true"
+    sidecar.istio.io/inject: "true"
+    sidecar.istio.io/rewriteAppHTTPProbers: "true"
+    autoscaling.knative.dev/target: "10"
+  name: llama3-8b-instruct-2xa100
+spec:
+  predictor:
+    tolerations:
+    - effect: NoSchedule
+      key: nvidia.com/gpu
+      operator: Exists
+    - effect: NoSchedule
+      key: odh-notebook
+      operator: Exists
+    minReplicas: 1
+    model:
+      modelFormat:
+        name: nvidia-nim-llama3-8b-instruct
+      resources:
+        limits:
+          nvidia.com/gpu: "2"
+        requests:
+          nvidia.com/gpu: "2"
+      runtime: nvidia-nim-llama3-8b-instruct-24.05
+      storageUri: pvc://nvidia-nim-pvc/
+    nodeSelector:
+      node.kubernetes.io/instance-type: p4d.24xlarge
