@@ -33,7 +33,7 @@ curl -k http://localhost:8080/v1/chat/completions \
 
 ## llama
 ```
-curl --insecure -k https://llama-2-7b-chat-nim-kserve.apps.ai-dev03.kni.syseng.devcluster.openshift.com/v1/chat/completions \
+curl --insecure -k https://llama-2-7b-chat-pvc-llama.apps.ai-dev03.kni.syseng.devcluster.openshift.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_KEY_REQUIRED_IF_EXECUTING_OUTSIDE_NGC" \
   -d '{
