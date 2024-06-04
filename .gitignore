@@ -18,3 +18,5 @@ design/
 llama-2-7b-chat/
 meta-llama3-8b-instruct/
 secrets.env
+gateway-fix/
+dailyrun.md
