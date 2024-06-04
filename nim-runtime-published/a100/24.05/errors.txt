@@ -1,0 +1,32 @@
+# This seems to be an issue with runtime. It fails frequently with p4dX24large
+
+===========================================
+== NVIDIA Inference Microservice LLM NIM ==
+===========================================
+
+NVIDIA Inference Microservice LLM NIM Version 24.05
+Model: "mphexwv2ysej/meta-llama3-8b-instruct"
+
+Container image Copyright (c) 2016-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+This NIM container is governed by the NVIDIA AI Product Agreement here:
+https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/
+
+A copy of this license can be found under /opt/nvidia/LICENSE
+
+2024-06-04 01:17:03,498 [INFO] PyTorch version 2.2.2 available.
+2024-06-04 01:17:04,152 [WARNING] [TRT-LLM] [W] Logger level already set from environment. Discard new verbosity: error
+[TensorRT-LLM] TensorRT-LLM version: 0.10.0.dev2024052300
+2024-06-04 01:17:04,209 [INFO] [TRT-LLM] [I] TensorRT-LLM inited.
+INFO 06-04 01:17:05.107 api_server.py:409] NIM LLM API version 0.1.0
+INFO 06-04 01:17:05.108 ngc_profile.py:197] Detected 0 compatible profile(s).
+INFO 06-04 01:17:05.108 ngc_profile.py:199] Detected additional 2 compatible profile(s) that are currently not runnable due to low free GPU memory.
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/usr/local/lib/python3.10/dist-packages/vllm_nvext/entrypoints/openai/api_server.py", line 412, in <module>
+    engine_args, extracted_name = inject_ngc_hub(engine_args)
+  File "/usr/local/lib/python3.10/dist-packages/vllm_nvext/hub/ngc_injector.py", line 113, in inject_ngc_hub
+    raise ValueError("Unable to select compatible engine for platform")
+ValueError: Unable to select compatible engine for platform

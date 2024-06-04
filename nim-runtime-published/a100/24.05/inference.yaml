@@ -17,6 +17,7 @@ spec:
       key: odh-notebook
       operator: Exists
     minReplicas: 1
+    maxReplicas: 2
     model:
       modelFormat:
         name: nvidia-nim-llama3-8b-instruct
