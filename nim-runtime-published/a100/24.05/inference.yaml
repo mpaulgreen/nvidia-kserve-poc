@@ -5,7 +5,7 @@ metadata:
     serving.knative.openshift.io/enablePassthrough: "true"
     sidecar.istio.io/inject: "true"
     sidecar.istio.io/rewriteAppHTTPProbers: "true"
-    autoscaling.knative.dev/target: "1"
+    autoscaling.knative.dev/target: "10"
   name: llama3-8b-instruct-1xgpu
 spec:
   predictor:

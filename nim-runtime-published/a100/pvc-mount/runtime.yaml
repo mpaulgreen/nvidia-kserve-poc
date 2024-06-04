@@ -27,7 +27,7 @@ spec:
     - v2
     - grpc-v2
   imagePullSecrets:
-    - name: registry-secret
+    - name: ngc-secret
   containers:
     - name: kserve-container
       # image: nvcr.io/ohlfw0olaadg/ea-participants/nemollm-inference-ms:24.01

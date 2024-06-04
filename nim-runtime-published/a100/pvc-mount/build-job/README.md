@@ -9,13 +9,13 @@ oc apply -f pvc.yaml
 ```
 ### Build the ngc pull image
 ```
-sudo podman build -t quay.io/mpaulgreen/ngc-pull:0.6 -f ./ngcpull_Dockerfile
-sudo podman push quay.io/mApaulgreen/ngc-pull:0.6
+sudo podman build -t quay.io/mpaulgreen/ngc-pull:0.6 -f ./ngcpull_Dockerfile --no-cache
+sudo podman push quay.io/mpaulgreen/ngc-pull:0.6
 ```
 
 ### Build the image to run the job
 ```
-sudo podman build -t quay.io/mpaulgreen/ngc-job:0.6 -f ./createjob_Dockerfile
+sudo podman build -t quay.io/mpaulgreen/ngc-job:0.6 -f ./createjob_Dockerfile --no-cache
 sudo podman push quay.io/mpaulgreen/ngc-job:0.6
 ```
 
