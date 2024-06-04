@@ -6,7 +6,7 @@ metadata:
     # sidecar.istio.io/inject: "true"
     # sidecar.istio.io/rewriteAppHTTPProbers: "true"
     autoscaling.knative.dev/target: "10"
-  name: llama3-8b-instruct-2xa100
+  name: llama3-8b-instruct-1xa100
 spec:
   predictor:
     tolerations:
@@ -20,9 +20,9 @@ spec:
         name: nvidia-nim-llama3-8b-instruct
       resources:
         limits:
-          nvidia.com/gpu: "2"
+          nvidia.com/gpu: "1"
         requests:
-          nvidia.com/gpu: "2"
+          nvidia.com/gpu: "1"
       runtime: nvidia-nim-llama3-8b-instruct-24.05
       workingDir: /tmp
     nodeSelector:
