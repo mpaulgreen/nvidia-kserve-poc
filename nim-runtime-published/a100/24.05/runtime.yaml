@@ -11,14 +11,13 @@ spec:
   containers:
   - env:
     - name: NIM_CACHE_PATH
-      value: /tmp
-      # value: /mnt/models/cache
+      value: /mnt/models-aux
     - name: NGC_API_KEY
       valueFrom:
         secretKeyRef:
            name: nvidia-nim-secrets
            key: NGC_API_KEY
-    image: nvcr.io/mphexwv2ysej/meta-llama3-8b-instruct:24.05.rc11
+    image: nvcr.io/nim/meta/llama3-8b-instruct:1.0.0
     name: kserve-container
     ports:
     - containerPort: 8000
@@ -33,6 +32,9 @@ spec:
     volumeMounts:
     - mountPath: /dev/shm
       name: dshm
+    - name: model-store
+      readOnly: false
+      mountPath: /mnt/models-aux
   imagePullSecrets:
   - name: ngc-secret
   protocolVersions:
@@ -44,7 +46,9 @@ spec:
     priority: 1
     version: "24.05"
   volumes:
-  - emptyDir:
+  - name: model-store
+    emptyDir: {}
+  - name: dshm
+    emptyDir:
       medium: Memory
       sizeLimit: 128Gi
-    name: dshm
