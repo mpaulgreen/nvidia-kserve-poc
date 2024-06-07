@@ -7,7 +7,7 @@ spec:
     opendatahub.io/recommended-accelerators: '["nvidia.com/gpu"]'
   containers:
   - env:
-    # - name: NIM_CACHE_PATH # kserve volumes are readonly, fails. NIM continues to download the model.
+    # - name: NIM_CACHE_PATH # kserve volumes are readonly, fails. NIM continues to download the model for every pod.
     #   value: /any path
     - name: NGC_API_KEY
       valueFrom:

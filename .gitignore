@@ -20,3 +20,4 @@ meta-llama3-8b-instruct/
 secrets.env
 gateway-fix/
 dailyrun.md
+tmp/
