@@ -11,25 +11,22 @@ The use of this model is governed by the AI Foundation Models Community License
 here: https://docs.nvidia.com/ai-foundation-models-community-license.pdf.
 ADDITIONAL INFORMATION: Meta Llama 3 Community License, Built with Meta Llama 3.
 A copy of the Llama 3 license can be found under /opt/nim/MODEL_LICENSE.
-2024-06-07 14:04:50,364 [INFO] PyTorch version 2.2.2 available.
-2024-06-07 14:04:51,009 [WARNING] [TRT-LLM] [W] Logger level already set from environment. Discard new verbosity: error
-2024-06-07 14:04:51,009 [INFO] [TRT-LLM] [I] Starting TensorRT-LLM init.
-2024-06-07 14:04:51,035 [INFO] [TRT-LLM] [I] TensorRT-LLM inited.
+2024-06-07 16:32:24,973 [INFO] PyTorch version 2.2.2 available.
+2024-06-07 16:32:25,627 [WARNING] [TRT-LLM] [W] Logger level already set from environment. Discard new verbosity: error
+2024-06-07 16:32:25,627 [INFO] [TRT-LLM] [I] Starting TensorRT-LLM init.
+2024-06-07 16:32:25,666 [INFO] [TRT-LLM] [I] TensorRT-LLM inited.
 [TensorRT-LLM] TensorRT-LLM version: 0.10.1.dev2024053000
-INFO 06-07 14:04:51.951 api_server.py:489] NIM LLM API version 1.0.0
-INFO 06-07 14:04:51.953 ngc_profile.py:217] Running NIM without LoRA. Only looking for compatible profiles that do not support LoRA.
-INFO 06-07 14:04:51.953 ngc_profile.py:219] Detected 1 compatible profile(s).
-INFO 06-07 14:04:51.953 ngc_injector.py:106] Valid profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1) on GPUs [0]
-INFO 06-07 14:04:51.954 ngc_injector.py:141] Selected profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1)
-INFO 06-07 14:04:52.533 ngc_injector.py:146] Profile metadata: feat_lora: false
-INFO 06-07 14:04:52.533 ngc_injector.py:146] Profile metadata: precision: fp16
-INFO 06-07 14:04:52.533 ngc_injector.py:146] Profile metadata: llm_engine: vllm
-INFO 06-07 14:04:52.533 ngc_injector.py:146] Profile metadata: tp: 1
-INFO 06-07 14:04:52.533 ngc_injector.py:166] Preparing model workspace. This step might download additional files to run the model.
-INFO 06-07 14:05:45.202 ngc_injector.py:172] Model workspace is now ready. It took 52.669 seconds
-INFO 06-07 14:05:45.209 llm_engine.py:98] Initializing an LLM engine (v0.4.1) with config: model='/tmp/meta--llama3-8b-instruct-8g2dvrmi', speculative_config=None, tokenizer='/tmp/meta--llama3-8b-instruct-8g2dvrmi', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), seed=0)
-WARNING 06-07 14:05:45.507 logging.py:314] Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-INFO 06-07 14:05:45.530 utils.py:609] Found nccl from library /usr/local/lib/python3.10/dist-packages/nvidia/nccl/lib/libnccl.so.2
-INFO 06-07 14:05:47 selector.py:28] Using FlashAttention backend.
-INFO 06-07 14:05:52 model_runner.py:173] Loading model weights took 14.9595 GB
-INFO 06-07 14:05:53.839 gpu_executor.py:119] # GPU blocks: 9473, # CPU blocks: 2048
+INFO 06-07 16:32:26.572 api_server.py:489] NIM LLM API version 1.0.0
+INFO 06-07 16:32:26.574 ngc_profile.py:217] Running NIM without LoRA. Only looking for compatible profiles that do not support LoRA.
+INFO 06-07 16:32:26.574 ngc_profile.py:219] Detected 1 compatible profile(s).
+INFO 06-07 16:32:26.574 ngc_injector.py:106] Valid profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1) on GPUs [0]
+INFO 06-07 16:32:26.574 ngc_injector.py:141] Selected profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1)
+INFO 06-07 16:32:27.162 ngc_injector.py:146] Profile metadata: tp: 1
+INFO 06-07 16:32:27.162 ngc_injector.py:146] Profile metadata: feat_lora: false
+INFO 06-07 16:32:27.162 ngc_injector.py:146] Profile metadata: llm_engine: vllm
+INFO 06-07 16:32:27.162 ngc_injector.py:146] Profile metadata: precision: fp16
+INFO 06-07 16:32:27.162 ngc_injector.py:166] Preparing model workspace. This step might download additional files to run the model.
+INFO 06-07 16:33:20.877 ngc_injector.py:172] Model workspace is now ready. It took 53.715 seconds
+INFO 06-07 16:33:20.884 llm_engine.py:98] Initializing an LLM engine (v0.4.1) with config: model='/tmp/meta--llama3-8b-instruct-1w2vt80n', speculative_config=None, tokenizer='/tmp/meta--llama3-8b-instruct-1w2vt80n', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), seed=0)
+WARNING 06-07 16:33:21.176 logging.py:314] Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 06-07 16:33:21.198 utils.py:609] Found nccl from library /usr/local/lib/python3.10/dist-packages/nvidia/nccl/lib/libnccl.so.2
