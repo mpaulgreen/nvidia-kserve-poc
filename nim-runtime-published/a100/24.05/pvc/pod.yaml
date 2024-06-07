@@ -1,0 +1,29 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pvc-access
+spec:
+  nodeSelector:
+    node.kubernetes.io/instance-type: p4d.24xlarge
+  containers:
+    - resources: {}
+      name: main
+      command:
+        - /bin/sh
+        - '-ec'
+        - sleep 10000
+      volumeMounts:
+        - name: my-pvc
+          mountPath: /model-store
+      image: ubuntu
+  volumes:
+    - name: my-pvc
+      persistentVolumeClaim:
+        claimName: nim-pvc
+  tolerations:
+    - key: nvidia.com/gpu
+      operator: Exists
+      effect: NoSchedule
+    - key: odh-notebook
+      operator: Exists
+      effect: NoSchedule
