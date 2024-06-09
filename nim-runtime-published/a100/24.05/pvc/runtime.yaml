@@ -8,7 +8,7 @@ spec:
   containers:
   - env:
     # - name: NIM_CACHE_PATH # kserve volumes are readonly, fails. NIM continues to download the model for every pod.
-    #   value: /mnt/models
+    #   value: /mnt/models/cache
     - name: NGC_API_KEY
       valueFrom:
         secretKeyRef:

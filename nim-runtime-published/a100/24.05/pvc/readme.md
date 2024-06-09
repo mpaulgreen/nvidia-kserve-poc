@@ -31,7 +31,7 @@ NGC_EXE=$(pwd)/ngc-cli/ngc
 $NGC_EXE config set
 ```
 ```
-$NGC_EXE registry model download-version --dest "./model-store" "mphexwv2ysej/meta-llama3-8b-instruct:0515-db4a5074-trtllm10-1xa100-fp16"
+$NGC_EXE registry model download-version --dest "./model-store/cache" "mphexwv2ysej/meta-llama3-8b-instruct:0515-db4a5074-trtllm10-1xa100-fp16"
 ```
 
 ## Create the runtime
