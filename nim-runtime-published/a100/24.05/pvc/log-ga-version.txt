@@ -1,0 +1,45 @@
+== NVIDIA Inference Microservice LLM NIM ==
+===========================================
+
+NVIDIA Inference Microservice LLM NIM Version 1.0.0
+Model: nim/meta/llama3-8b-instruct
+
+Container image Copyright (c) 2016-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This NIM container is governed by the NVIDIA AI Product Agreement here:
+https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/.
+A copy of this license can be found under /opt/nim/LICENSE.
+
+The use of this model is governed by the AI Foundation Models Community License
+here: https://docs.nvidia.com/ai-foundation-models-community-license.pdf.
+
+ADDITIONAL INFORMATION: Meta Llama 3 Community License, Built with Meta Llama 3. 
+A copy of the Llama 3 license can be found under /opt/nim/MODEL_LICENSE.
+WARNING 06-09 11:23:33.583 caches.py:27] /mnt/models is read-only, application may fail if model is not already present in cache
+
+There was a problem when trying to write in your cache folder (/mnt/models/huggingface/hub). You should set the environment variable TRANSFORMERS_CACHE to a writable directory.
+2024-06-09 11:23:37,523 [INFO] PyTorch version 2.2.2 available.
+2024-06-09 11:23:39,384 [WARNING] [TRT-LLM] [W] Logger level already set from environment. Discard new verbosity: error
+2024-06-09 11:23:39,384 [INFO] [TRT-LLM] [I] Starting TensorRT-LLM init.
+[TensorRT-LLM] TensorRT-LLM version: 0.10.1.dev2024053000
+2024-06-09 11:23:39,767 [INFO] [TRT-LLM] [I] TensorRT-LLM inited.
+INFO 06-09 11:23:40.638 api_server.py:489] NIM LLM API version 1.0.0
+INFO 06-09 11:23:40.640 ngc_profile.py:217] Running NIM without LoRA. Only looking for compatible profiles that do not support LoRA.
+INFO 06-09 11:23:40.640 ngc_profile.py:219] Detected 1 compatible profile(s).
+INFO 06-09 11:23:40.640 ngc_injector.py:106] Valid profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1) on GPUs [0]
+INFO 06-09 11:23:40.640 ngc_injector.py:141] Selected profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1)
+INFO 06-09 11:23:41.141 ngc_injector.py:146] Profile metadata: llm_engine: vllm
+INFO 06-09 11:23:41.141 ngc_injector.py:146] Profile metadata: tp: 1
+INFO 06-09 11:23:41.141 ngc_injector.py:146] Profile metadata: feat_lora: false
+INFO 06-09 11:23:41.141 ngc_injector.py:146] Profile metadata: precision: fp16
+INFO 06-09 11:23:41.141 ngc_injector.py:166] Preparing model workspace. This step might download additional files to run the model.
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/usr/local/lib/python3.10/dist-packages/vllm_nvext/entrypoints/openai/api_server.py", line 492, in <module>
+    engine_args, extracted_name = inject_ngc_hub(engine_args)
+  File "/usr/local/lib/python3.10/dist-packages/vllm_nvext/hub/ngc_injector.py", line 168, in inject_ngc_hub
+    cached = repo.download_all()
+Exception: "Errors fetching files: \nissue a download request for file: \"model-00001-of-00004.safetensors\"; the repo file list has not been validated. \nissue a download request for file: \"config.json\"; the repo file list has not been validated. \nissue a download request for file: \"model-00002-of-00004.safetensors\"; the repo file list has not been validated. \nissue a download request for file: \"model-00004-of-00004.safetensors\"; the repo file list has not been validated. \nissue a download request for file: \"tokenizer.json\"; the repo file list has not been validated. \nissue a download request for file: \"model-00003-of-00004.safetensors\"; the repo file list has not been validated. \nissue a download request for file: \"special_tokens_map.json\"; the repo file list has not been validated. \nissue a download request for file: \"tokenizer_config.json\"; the repo file list has not been validated. \nissue a download request for file: \"model.safetensors.index.json\"; the repo file list has not been validated. \nissue a download request for file: \"generation_config.json\"; the repo file list has not been validated. "
