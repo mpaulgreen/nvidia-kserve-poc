@@ -30,6 +30,8 @@ NGC_EXE=$(pwd)/ngc-cli/ngc
 ```
 $NGC_EXE config set
 ```
+
+## NVIDIA no longer advise the usage NGC cli for downloading the model
 ```
 $NGC_EXE registry model download-version --dest "./model-store/cache" "nim/meta/llama3-8b-instruct:0.10.0+cbc614f5-l40sx2-fp8-latency"
 ```
