@@ -17,7 +17,7 @@ spec:
       key: odh-notebook
       operator: Exists
     minReplicas: 1
-    maxReplicas: 2 # Not included in phase 1 as it will involve changes to Openshif AI UI.
+    # maxReplicas: 2 # Not included in phase 1 as it will involve changes to Openshif AI UI.
     model:
       modelFormat:
         name: nvidia-nim-llama3-8b-instruct

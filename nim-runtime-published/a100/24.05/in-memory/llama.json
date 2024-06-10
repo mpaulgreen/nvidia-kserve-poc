@@ -1,5 +1,5 @@
 {
-  "model": "meta-llama3-8b-instruct",
+  "model": "meta/llama3-8b-instruct",
   "messages": [{"role":"user","content":"where do I go in spain"}],
   "temperature": 0.5,   
   "max_tokens": 1024,
