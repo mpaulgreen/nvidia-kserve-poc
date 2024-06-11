@@ -1,0 +1,56 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cache-model
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: ngc-secret
+      containers:
+        - name: cache-model
+          image: nvcr.io/nim/meta/llama3-8b-instruct:1.0.0
+          volumeMounts:
+            - mountPath: /model-store
+              name: model-store
+            - mountPath: /dev/shm
+              name: dshm
+          env:
+            - name: NGC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: nvidia-nim-secrets
+                  key: NGC_API_KEY
+            - name: NIM_CACHE_PATH
+              value: /model-store
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          resources:
+            limits:
+              cpu: "12"
+              memory: 256Gi
+              nvidia.com/gpu: "1"
+            requests:
+              cpu: "12"
+              memory: 128Gi
+              nvidia.com/gpu: "1"
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+        - key: odh-notebook
+          operator: Exists
+          effect: NoSchedule
+      nodeSelector:
+        node.kubernetes.io/instance-type: p4d.24xlarge
+      volumes:
+        - emptyDir:
+            medium: Memory
+            sizeLimit: 128Gi
+          name: dshm
+        - name: model-store
+          persistentVolumeClaim:
+            claimName: nim-pvc
+      restartPolicy: Never
