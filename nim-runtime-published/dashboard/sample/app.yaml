@@ -1,0 +1,81 @@
+apiVersion: dashboard.opendatahub.io/v1
+kind: OdhApplication
+metadata:
+  name: nvidia-nim
+  namespace: redhat-ods-applications
+  labels:
+    app: odh-dashboard
+    app.kubernetes.io/part-of: rhods-dashboard
+    app.opendatahub.io/rhods-dashboard: 'true'
+spec:
+  enable:
+    validationConfigMap: nvidia-nim-validation-result
+    validationJob: nvidia-nim-periodic-validator
+    validationSecret: nvidia-nim-access
+    variableHelpText:
+      api_key: This NGC API key is given to you by NVIDIA
+      org: Your NGC organization
+    variableDisplayText:
+      api_key: NGC API Key
+      org: NGC Organization
+    variables:
+      api_key: password
+      org: text
+    title: Enable NVIDIA NIM
+    description: ''
+    actionLabel: Enable
+
+  getStartedLink: 'https://anaconda.cloud/register?utm_source=redhat-rhods-summit'
+  route: ''
+  displayName: NVIDIA NIM
+  kfdefApplications: []
+  support: third party support
+  provider: NVIDIA
+  docsLink: 'https://developer.nvidia.com/nim'
+  quickStart: create-jupyter-notebook-anaconda
+  getStartedMarkDown: >-
+    # Anaconda Professional
+
+    The world's most popular open-source package distribution and management
+    experience, optimized for commercial use and compliance with our Terms of
+    Service.
+
+    ## Key features
+
+    * More than 7500 Anaconda-built data science/machine learning packages
+
+    * Access to all Anaconda packages curated for security and compatibility
+
+    * With a site license, organizations can use mirroring software to create
+    copies of the commercial package repository
+
+    * Guaranteed up-time to support commercial usage
+
+    * Compliant for commercial use according to the Anaconda Terms of Service
+
+
+    For more information visit
+    [https://www.anaconda.com/products/professional](https://www.anaconda.com/products/professional)
+
+    ## Subscribe
+
+    1. Go to
+    [https://anaconda.cloud/register](https://anaconda.cloud/register?utm_source=redhat-rhods-summit)
+
+    2. Create an account
+
+    3. Create a profile
+
+    4. Purchase a Professional subscription
+
+    5. Receive an Anaconda Professional token and instructions for install and
+    configuration via email.
+
+
+    You will need the token provided in the email when launching the Anaconda
+    Jupyter image.
+  description: >-
+    NVIDIA NIM, part of NVIDIA AI Enterprise, is a set of accelerated inference
+    microservices that allow organizations to run AI models on NVIDIA GPUs
+    anywhere—in the cloud, data center, workstations, and PCs.
+  category: Partner managed

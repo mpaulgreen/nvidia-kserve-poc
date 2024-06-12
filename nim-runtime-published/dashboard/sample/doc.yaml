@@ -1,0 +1,23 @@
+apiVersion: dashboard.opendatahub.io/v1
+kind: OdhDocument
+metadata:
+  annotations:
+    internal.config.kubernetes.io/previousKinds: OdhDocument
+    internal.config.kubernetes.io/previousNames: anaconda-background
+    internal.config.kubernetes.io/previousNamespaces: default
+    opendatahub.io/categories: 'Package management,Notebook environments'
+  name: anaconda-background
+  namespace: redhat-ods-applications
+  labels:
+    app: odh-dashboard
+    app.kubernetes.io/part-of: rhods-dashboard
+    app.opendatahub.io/rhods-dashboard: 'true'
+spec:
+  appName: anaconda-ce
+  description: >-
+    Learn about Anaconda, a freemium open source distribution of the Python and
+    R programming languages.
+  displayName: Exploring Anaconda for data science
+  durationMinutes: 5
+  type: tutorial
+  url: 'https://anaconda.org/training/anaconda_introduction/notebook'
