@@ -1,3 +1,5 @@
+# Please dont use these manifests and NVIDA is still investigating on the issue of model downloads
+
 # Scenario - Download the model to a PVC first then serve the model using KServe
 ## Download the model
 ```
