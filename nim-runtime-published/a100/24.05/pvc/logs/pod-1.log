@@ -1,0 +1,96 @@
+===========================================
+== NVIDIA Inference Microservice LLM NIM ==
+===========================================
+
+NVIDIA Inference Microservice LLM NIM Version 1.0.0
+Model: /mnt/models/cache/ngc/hub/models--nim--meta--llama3-8b-instruct/snapshots/hf
+
+Container image Copyright (c) 2016-2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This NIM container is governed by the NVIDIA AI Product Agreement here:
+https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/.
+A copy of this license can be found under /opt/nim/LICENSE.
+
+The use of this model is governed by the AI Foundation Models Community License
+here: https://docs.nvidia.com/ai-foundation-models-community-license.pdf.
+
+ADDITIONAL INFORMATION: Meta Llama 3 Community License, Built with Meta Llama 3. 
+A copy of the Llama 3 license can be found under /opt/nim/MODEL_LICENSE.
+
+2024-06-25 23:57:34,911 [INFO] PyTorch version 2.2.2 available.
+2024-06-25 23:57:35,556 [WARNING] [TRT-LLM] [W] Logger level already set from environment. Discard new verbosity: error
+2024-06-25 23:57:35,556 [INFO] [TRT-LLM] [I] Starting TensorRT-LLM init.
+2024-06-25 23:57:35,717 [INFO] [TRT-LLM] [I] TensorRT-LLM inited.
+[TensorRT-LLM] TensorRT-LLM version: 0.10.1.dev2024053000
+INFO 06-25 23:57:36.599 api_server.py:489] NIM LLM API version 1.0.0
+INFO 06-25 23:57:36.601 ngc_profile.py:217] Running NIM without LoRA. Only looking for compatible profiles that do not support LoRA.
+INFO 06-25 23:57:36.601 ngc_profile.py:219] Detected 1 compatible profile(s).
+INFO 06-25 23:57:36.601 ngc_injector.py:106] Valid profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1) on GPUs [0]
+INFO 06-25 23:57:36.601 ngc_injector.py:141] Selected profile: 8835c31752fbc67ef658b20a9f78e056914fdef0660206d82f252d62fd96064d (vllm-fp16-tp1)
+INFO 06-25 23:57:37.571 ngc_injector.py:146] Profile metadata: feat_lora: false
+INFO 06-25 23:57:37.571 ngc_injector.py:146] Profile metadata: precision: fp16
+INFO 06-25 23:57:37.571 ngc_injector.py:146] Profile metadata: llm_engine: vllm
+INFO 06-25 23:57:37.571 ngc_injector.py:146] Profile metadata: tp: 1
+INFO 06-25 23:57:37.571 ngc_injector.py:166] Preparing model workspace. This step might download additional files to run the model.
+INFO 06-25 23:58:34.506 ngc_injector.py:172] Model workspace is now ready. It took 56.935 seconds
+INFO 06-25 23:58:34.513 llm_engine.py:98] Initializing an LLM engine (v0.4.1) with config: model='/tmp/meta--llama3-8b-instruct-owxgl_rn', speculative_config=None, tokenizer='/tmp/meta--llama3-8b-instruct-owxgl_rn', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), seed=0)
+WARNING 06-25 23:58:34.809 logging.py:314] Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 06-25 23:58:34.832 utils.py:609] Found nccl from library /usr/local/lib/python3.10/dist-packages/nvidia/nccl/lib/libnccl.so.2
+INFO 06-25 23:58:36 selector.py:28] Using FlashAttention backend.
+INFO 06-25 23:58:42 model_runner.py:173] Loading model weights took 14.9595 GB
+INFO 06-25 23:58:42.937 gpu_executor.py:119] # GPU blocks: 9473, # CPU blocks: 2048
+INFO 06-25 23:58:44 model_runner.py:973] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 06-25 23:58:44 model_runner.py:977] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 06-25 23:58:50 model_runner.py:1054] Graph capturing finished in 6 secs.
+WARNING 06-25 23:58:50.831 logging.py:314] Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 06-25 23:58:50.844 serving_chat.py:347] Using default chat template:
+{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>
+
+'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{% if add_generation_prompt %}{{ '<|start_header_id|>assistant<|end_header_id|>
+
+' }}{% endif %}
+WARNING 06-25 23:58:51.113 logging.py:314] Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+INFO 06-25 23:58:51.127 api_server.py:456] Serving endpoints:
+  0.0.0.0:8000/openapi.json
+  0.0.0.0:8000/docs
+  0.0.0.0:8000/docs/oauth2-redirect
+  0.0.0.0:8000/metrics
+  0.0.0.0:8000/v1/health/ready
+  0.0.0.0:8000/v1/health/live
+  0.0.0.0:8000/v1/models
+  0.0.0.0:8000/v1/version
+  0.0.0.0:8000/v1/chat/completions
+  0.0.0.0:8000/v1/completions
+INFO 06-25 23:58:51.127 api_server.py:460] An example cURL request:
+curl -X 'POST' \
+  'http://0.0.0.0:8000/v1/chat/completions' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "meta/llama3-8b-instruct",
+    "messages": [
+      {
+        "role":"user",
+        "content":"Hello! How are you?"
+      },
+      {
+        "role":"assistant",
+        "content":"Hi! I am quite well, how can I help you today?"
+      },
+      {
+        "role":"user",
+        "content":"Can you write me a song?"
+      }
+    ],
+    "top_p": 1,
+    "n": 1,
+    "max_tokens": 15,
+    "stream": true,
+    "frequency_penalty": 1.0,
+    "stop": ["hello"]
+  }'
+
+INFO 06-25 23:58:51.173 server.py:82] Started server process [32]
+INFO 06-25 23:58:51.174 on.py:48] Waiting for application startup.
+INFO 06-25 23:58:51.175 on.py:62] Application startup complete.
+INFO 06-25 23:58:51.177 server.py:214] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
