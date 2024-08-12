@@ -1,4 +1,4 @@
-## Enable monitoring of NIM models
+## Enable monitoring of NIM models - Archived for NIM 24.01 and RHOAI 2.71
 
 #### The following steps are identified in Openshift AI docs for RHOAI 2.7.0
 ```
