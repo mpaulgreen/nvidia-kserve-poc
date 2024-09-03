@@ -4,8 +4,8 @@ metadata:
   name: nvidia-nim-llama3-8b-instruct-1.0.0
 spec:
   annotations:
-    prometheus.kserve.io/path: /metrics
-    prometheus.kserve.io/port: '8000'
+    prometheus.io/path: /metrics
+    prometheus.io/port: '8000'
   containers:
     - env:
         - name: NIM_CACHE_PATH
