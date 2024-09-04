@@ -41,11 +41,11 @@ spec:
     - autoSelect: true
       name: nvidia-nim-llama3-8b-instruct
       priority: 1
-      version: '24.05'
+      version: '1.1.0'
   volumes:
     - emptyDir:
         medium: Memory
-        sizeLimit: 128Gi
+        sizeLimit: 16Gi
       name: dshm
     - name: nim-pvc
       persistentVolumeClaim:
